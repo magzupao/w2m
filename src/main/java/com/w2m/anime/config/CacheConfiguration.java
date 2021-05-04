@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, com.w2m.anime.domain.User.class.getName());
             createCache(cm, com.w2m.anime.domain.Authority.class.getName());
             createCache(cm, com.w2m.anime.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.w2m.anime.domain.Heroe.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

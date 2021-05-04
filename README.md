@@ -1,22 +1,30 @@
 # w2m
 
-This application was generated using JHipster 6.10.5, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.5](https://www.jhipster.tech/documentation-archive/v6.10.5).
+Autor: Marco Aurelio Guado Zavaleta  
+Barcelona 04 Mayo 2021  
+  
+********** SI TIENES HERRAMIENTAS QUE TE FACILITAN EL TRABAJO, USALAS! ******************
 
 ## Development
 
-To start your application in the dev profile, run:
+Entorno:  
+Linux ubuntu 20.04  
+Jdk 11  
+Maven 3.6.3  
+Postman  
+  
+Para desplegar la aplicacion en modo dev ejecutar:  
+cd w2m  
 
 ```
 ./mvnw
 ```
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
+  
 ## Building for production
 
 ### Packaging as jar
 
-To build the final jar and optimize the w2m application for production, run:
+Empaquetamos la w2m aplicacion para producción, run:
 
 ```
 
@@ -34,11 +42,9 @@ java -jar target/*.jar
 
 ```
 
-Refer to [Using JHipster in production][] for more details.
-
 ### Packaging as war
 
-To package your application as a war in order to deploy it to an application server, run:
+Si queremos desplear el war en el  server, run:
 
 ```
 
@@ -49,78 +55,96 @@ To package your application as a war in order to deploy it to an application ser
 
 ## Testing
 
-To launch your application's tests, run:
+Realizamos los tests, run:
 
 ```
 ./mvnw verify
 ```
 
-For more information, refer to the [Running tests page][].
+## PRUEBAS  
+  
+Usando el cliente Postman ejecutamos las pruebas:
 
-### Code quality
+1. Consulta de todos los registros:  
 
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
+![](./images/authenticate.png)  
+  
+La respuesta es un JSON de jwt que guardamos en el cliente Postman para realizar las consultas.  
+  
+Creamos los datos, ingresamos 5 registros  
+  
+![](./images/create.png)  
+  
 
-```
-docker-compose -f src/main/docker/sonar.yml up -d
-```
+select de todos los registros  
 
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+![](./images/getAll.png)  
 
-Then, run a Sonar analysis:
 
-```
-./mvnw -Pprod clean verify sonar:sonar
-```
+2. Consulta por Id  
+  
+![](./images/getId.png)  
+  
+3. Consulta por "man"  
+  
+![](./images/getFilter.png)  
+  
+4. Realizamos el update  
+  
+![](./images/update.png)  
+  
+5. Eliminamos un registro  
+  
+![](./images/delete.png)  
+  
+6. Realizamos test  
+  
+![](./images/test.png)  
+  
+7. La aplicacion esta configurado para utilizar la Base de datos H2 con el perfil dev  
+  
+![](./images/h2.png)  
+  
 
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+## PUNTOS OPCIONALES  
 
-```
-./mvnw initialize sonar:sonar
-```
+Usamos liquibase para gestionar los script de Base de datos  
 
-For more information, refer to the [Code quality page][].
+![](./images/liquibase.png)  
+  
+Configuracion del log-back spring para gestionar las trazas de interes  
+  
+ ![](./images/trazas.png)   
+  
+Gestion de errores centralizado  
+  
+![](./images/errores.png)  
 
-## Using Docker to simplify development (optional)
+Tes de integracion, punto 6  
+  
+La aplicaicon esta configurada para ser ejecutada utilizando Docker  
+  
+![](./images/docker.png)    
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+Poder cachear peticiones, el proyecto esta configurado  
+  
+![](./images/cache.png)  
+  
+documentacion Apis, es una vista sencilla pero con algun plugin se puede mejorar  
+  
+![](./images/api.png)  
+  
 
-For example, to start a mysql database in a docker container, run:
+La aplicaicon esta usando Jwt como seguridad de acceso  
+  
+![](./images/jwt.png)   
+  
+### RESUMEN  
+  
+La arquitectura propuesta es flexible, extendible y con funcionalidades bien definidas para saber  
+en que punto hay que modificar o crear.
+  
+Cumple con los principios SOLID que se plasman en las diversos packages de la aplicacion:     
+configuracion, seguridad, rest, servicios, persistencia etc.
 
-```
-docker-compose -f src/main/docker/mysql.yml up -d
-```
 
-To stop it and remove the container, run:
-
-```
-docker-compose -f src/main/docker/mysql.yml down
-```
-
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
-
-```
-./mvnw -Pprod verify jib:dockerBuild
-```
-
-Then run:
-
-```
-docker-compose -f src/main/docker/app.yml up -d
-```
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 6.10.5 archive]: https://www.jhipster.tech/documentation-archive/v6.10.5
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.10.5/development/
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.10.5/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.10.5/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v6.10.5/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v6.10.5/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.10.5/setting-up-ci/
