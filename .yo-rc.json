@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.w2m.anime"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "w2m",
+    "packageName": "com.w2m.anime",
+    "packageFolder": "com/w2m/anime",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NWQwNDUwZDk2ZDdhZDQyM2UyNDZjYzZiOTgxYzQzMzg0NWQzMzVkYzJhZjMyMmZmYmRmNTkyNmM0M2M0ZGQ3YjU2ZDhlYzZlOTdmNDRkNGJlMGM2ZDJjMDRiYzcyYTJjZDRhZWU3OGNhZmQ5MDhlNzhmNzgwZWUwNmNjY2E2ZmM=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1620135154627,
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true
+  }
+}
